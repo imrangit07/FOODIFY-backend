@@ -5,7 +5,7 @@ const app = express();
 
 app.use(cors());
 
-app.get("/items",(req,res)=>{
+app.get("/",(req,res)=>{
      const category = req.query.category;
      const allItems = require('./DB.json');
 
