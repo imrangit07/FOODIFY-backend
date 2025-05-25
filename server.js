@@ -5,9 +5,16 @@ const app = express();
 
 app.use(cors());
 
-app.get("/",(req,res)=>{
+app.get("/items",(req,res)=>{
+     const category = req.query.category;
+     const allItems = require('./DB.json');
 
-    res.send(require('./DB.json'))
+      const filterData = allItems.Items.filter((item)=>item.category==category)
+      if(category){
+        
+         return res.send(filterData)
+      }
+    res.send(allItems)
     
 })
 
